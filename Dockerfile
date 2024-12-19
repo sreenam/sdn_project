@@ -1,6 +1,15 @@
 # Use an official Python image
 FROM python:3.9-slim
 
+# Install dependencies for Mininet and OpenFlow
+RUN apt-get update && apt-get install -y \
+    mininet \
+    openvswitch-switch \
+    net-tools \
+    python3 \
+    python3-pip \
+    && apt-get clean
+
 # Set the working directory inside the container
 WORKDIR /app
 
